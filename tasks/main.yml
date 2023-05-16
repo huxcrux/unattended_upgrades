@@ -1,0 +1,5 @@
+---
+- name: Include untantended-upgrades on supported hosts
+  ansible.builtin.include_tasks: untantended-upgrades.yml
+  when:
+    - ansible_os_family == 'Debian'

@@ -1,0 +1,19 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: unattended_upgrades
+  author: bl0m1
+  description: Install and configure unattended upgrades.
+  license: "license (MIT)"
+  min_ansible_version: "2.9"
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - automatic
+    - updates

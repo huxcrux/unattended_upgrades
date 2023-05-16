@@ -1,0 +1,49 @@
+{% if unattended_upgrades_allowed_origins %}
+Unattended-Upgrade::Allowed-Origins {
+{% for source in unattended_upgrades_allowed_origins %}
+    "{{source}}";
+{% endfor %}
+};
+{% endif %}
+
+Unattended-Upgrade::Package-Blacklist{
+{% for package in unattended_upgrade_blacklist %}
+    "{{package}}";
+{% endfor %}
+}
+
+{% if unattended_upgrades_origin_patterns %}
+Unattended-Upgrade::Origins-Pattern {
+{% for source in unattended_upgrades_origin_patterns %}
+    "{{source}}";
+{% endfor %}
+};
+{% endif %}
+
+Unattended-Upgrade::Automatic-Reboot "{{ unattended_upgrades_reboot }}";
+Unattended-Upgrade::Automatic-Reboot-Time "{{ unattended_upgrade_reboot_time }}";
+
+{% if unattended_upgrades_mail_to %}
+Unattended-Upgrade::Mail "{{ unattended_upgrades_mail_to }}";
+{% endif %}
+Unattended-Upgrade::MailReport "{{ unattended_upgrades_mail_report }}";
+
+Unattended-Upgrade::DevRelease "{{ unattended_upgrades_dev_release }}";
+
+//Unattended-Upgrade::AutoFixInterruptedDpkg "true";
+//Unattended-Upgrade::MinimalSteps "true";
+//Unattended-Upgrade::InstallOnShutdown "false";
+//Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
+//Unattended-Upgrade::Remove-New-Unused-Dependencies "true";
+//Unattended-Upgrade::Remove-Unused-Dependencies "false";
+//Unattended-Upgrade::Automatic-Reboot "false";
+//Unattended-Upgrade::Automatic-Reboot-WithUsers "true";
+//Acquire::http::Dl-Limit "70";
+// Unattended-Upgrade::SyslogEnable "false";
+// Unattended-Upgrade::SyslogFacility "daemon";
+// Unattended-Upgrade::OnlyOnACPower "true";
+// Unattended-Upgrade::Skip-Updates-On-Metered-Connections "true";
+// Unattended-Upgrade::Verbose "false";
+// Unattended-Upgrade::Debug "false";
+// Unattended-Upgrade::Allow-downgrade "false";
+// Unattended-Upgrade::Allow-APT-Mark-Fallback "true";
