@@ -1,7 +1,7 @@
 ---
 - name: Update repositories cache
   ansible.builtin.apt:
-    update_cache: yes
+    update_cache: true
 
 - name: Install unattended upgrades package.
   ansible.builtin.package:

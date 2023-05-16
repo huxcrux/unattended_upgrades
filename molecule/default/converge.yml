@@ -4,4 +4,4 @@
   become: true
 
   roles:
-    - role: ../ansible-role-unattended_upgrades
+    - role: ../unattended_upgrades
