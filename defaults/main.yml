@@ -1,11 +1,41 @@
 ---
-unattended_upgrades_reboot: "false"
-unattended_upgrade_reboot_time: "03:00"
 unattended_upgrades_allowed_origins:
  - ${distro_id}:${distro_codename}
  - ${distro_id} ${distro_codename}-security
 unattended_upgrades_origin_patterns: []
+unattended_upgrade_blacklist: []
+
+# Automatic reboot
+unattended_upgrades_reboot: false
+unattended_upgrade_reboot_time: "03:00"
+unattended_upgrade_reboot_with_users: true
+
+# Email notifications
 unattended_upgrades_mail_to: ""
 unattended_upgrades_mail_report: on-change
-unattended_upgrade_blacklist: []
+
+# Package cleanup
+unattended_upgrades_remove_unused_kernel_packages: true
+unattended_upgrades_remove_new_unused_deps: true
+unattended_upgrades_remove_unused_deps: false
+
+# Other options
+unattended_upgrades_autofix_interuppted_dpkg: true
+unattended_upgrades_allow_donwgrades: false
+unattended_upgrades_allow_apt_mark_fallback: true
+
+# Other options
 unattended_upgrades_dev_release: auto
+unattended_upgrades_minimal_steps: true
+unattended_upgrades_install_on_shutdown: false
+unattended_upgrades_only_on_ac_power: true
+unattended_upgrades_skip_on_metered_connection: true
+
+# Logging
+unattended_upgrades_syslog_enabled: false
+unattended_upgrades_syslog_facility: daemon
+unattended_upgrades_verbose: false
+unattended_upgrades_debug: false
+
+# Download limit
+unattended_upgrades_dl_limit: ""
