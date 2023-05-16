@@ -1,5 +1,5 @@
 ---
-name: CI
+name: Quick test
 'on':
   pull_request:
   push:
@@ -7,8 +7,27 @@ name: CI
       - main
 
 jobs:
-  lint:
-    name: Lint
+  yamllint:
+    name: Yamllint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip3 install yamllint
+
+      - name: Yamllint
+        run: |
+          yamllint .
+
+  ansible-lint:
+    name: Ansible Lint
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -25,10 +44,6 @@ jobs:
       - name: Ansible lint
         run: |
           ansible-lint
-
-      - name: Yamllint
-        run: |
-          yamllint .
 
   molecule:
     name: Molecule
