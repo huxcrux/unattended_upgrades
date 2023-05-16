@@ -33,7 +33,3 @@ unattended_upgrades_allowed_origins:
   roles:
     - bl0m1.unattended_upgrades
 ```
-
-## License
-
-MIT / BSD
