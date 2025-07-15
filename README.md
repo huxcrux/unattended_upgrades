@@ -52,5 +52,5 @@ unattended_upgrades_allowed_origins:
 ```yaml
 - hosts: all
   roles:
-    - bl0m1.unattended_upgrades
+    - huxcrux.unattended_upgrades
 ```
