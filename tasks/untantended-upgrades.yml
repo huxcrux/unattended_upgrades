@@ -8,6 +8,11 @@
     name: unattended-upgrades
     state: present
 
+- name: Unmask unattended-upgrades if masked
+  ansible.builtin.systemd:
+    name: unattended-upgrades.service
+    masked: false
+
 - name: Copy unattended-upgrades configuration files in place.
   ansible.builtin.template:
     src: "{{ item }}.j2"
